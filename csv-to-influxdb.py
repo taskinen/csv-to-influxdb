@@ -94,12 +94,13 @@ def loadCsv(inputfilename, servername, user, password, dbname, metric,
             for f in fieldcolumns:
                 v = 0
                 if f in row:
-                    if (isfloat(row[f])):
-                        v = float(row[f])
-                    elif (isbool(row[f])):
-                        v = str2bool(row[f])
+                    r = row[f].replace(',','.' )
+                    if (isfloat(r)):
+                        v = float(r)
+                    elif (isbool(r)):
+                        v = str2bool(r)
                     else:
-                        v = row[f]
+                        v = r
                 fields[f] = v
 
 
