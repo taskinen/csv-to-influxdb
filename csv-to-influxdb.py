@@ -72,7 +72,7 @@ def loadCsv(inputfilename, servername, user, password, dbname, metric,
     inputfile = open(inputfilename, 'r')
     count = 0
     with inputfile as csvfile:
-        reader = csv.DictReader(csvfile, delimiter=delimiter)
+        reader = csv.DictReader(csvfile, delimiter=delimiter, skipinitialspace=True)
         for row in reader:
             datetime_naive = datetime.datetime.strptime(row[timecolumn],timeformat)
 
